@@ -2,9 +2,9 @@
 {
     class Programm
     {
-        public static List<Employee> Workers = new List<Employee>();
         static void Main()
         {
+            Company company = new Company("Сiгма тiм");
             Ceo ceo = new Ceo("Влад", 40000, 10);
             ceo.Work();
             Manager manager = new Manager("Микола", 30000, 7);
@@ -15,20 +15,20 @@
             Engineer engineer = new Engineer("Степан", 23000, 8, manager);
             engineer.Work();
             engineer.ShowWeekends();
-            Mechanic mechanic = new Mechanic("Гриша", 15000, 2, manager);
-            mechanic.Work();
+            Mechanic mechanic1 = new Mechanic("Гриша", 15000, 2, manager);
+            mechanic1.Work();
+            Mechanic mechanic2 = new Mechanic("Вася", 16500, 2, manager);
             manager.ShowWorkers();
             manager.GiveTask(engineer);
-            ShowSalaries();
             ceo.Promote(engineer);
-        }
-        
-        public static void ShowSalaries()
-        {
-            foreach (Employee employee in Workers)
-            {
-                Console.WriteLine($"Зарплатня {employee.Name}({employee.Post}) - {employee.Salary}");
-            }
+            company.AddWorker(ceo);
+            company.AddWorker(manager);
+            company.AddWorker(archEngineer);
+            company.AddWorker(engineer);
+            company.AddWorker(mechanic1);
+            company.AddWorker(mechanic2);
+            company.ShowSalaries();
+            company.MediumSalary(Employee.Posts.Механiк);
         }
     }
 } 

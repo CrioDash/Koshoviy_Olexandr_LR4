@@ -17,7 +17,6 @@ public abstract class Employee
     public int Weekends { set; get; }
     public Employee(string name, int salary, int exp)
     {
-        Programm.Workers.Add(this);
         Name = name;
         Salary = salary;
         Exp = exp;
